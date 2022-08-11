@@ -4,8 +4,8 @@ const nextConfig = {
   swcMinify: true,
   compiler: {
     //NOTE: styledComponentsの有効化(SSRでも動作するため)
-    styledComponents: true
-  }
+    styledComponents: true,
+  },
 }
 
 module.exports = nextConfig

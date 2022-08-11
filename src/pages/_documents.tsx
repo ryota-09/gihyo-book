@@ -1,5 +1,5 @@
-import Document, { DocumentContext, DocumentInitialProps } from "next/document"
-import { ServerStyleSheet } from "styled-components"
+import Document, { DocumentContext, DocumentInitialProps } from 'next/document'
+import { ServerStyleSheet } from 'styled-components'
 
 /**
  * カスタムドキュメントを作成するコンポーネント
@@ -7,28 +7,31 @@ import { ServerStyleSheet } from "styled-components"
 
 //NOTE: デフォルトのDocumentをMyDocumentで上書き
 export default class MyDocument extends Document {
-  static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
+  static async getInitialProps(
+    ctx: DocumentContext,
+  ): Promise<DocumentInitialProps> {
     const sheet = new ServerStyleSheet()
     const originalRenderPage = ctx.renderPage
 
     try {
-      ctx.renderPage = () => originalRenderPage({
-        enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />)
-      })
+      ctx.renderPage = () =>
+        originalRenderPage({
+          enhanceApp: (App) => (props) =>
+            sheet.collectStyles(<App {...props} />),
+        })
       //初期値を流用
       const initialProps = await Document.getInitialProps(ctx)
       //initialProps に加えて、styleを追加して返す
       return {
         ...initialProps,
         styles: [
-          
           <>
-          {/* もともとのstyle */}
+            {/* もともとのstyle */}
             {initialProps.styles}
             {/* styled-componentsのstyle */}
             {sheet.getStyleElement()}
-          </>
-        ]
+          </>,
+        ],
       }
     } finally {
       sheet.seal()
