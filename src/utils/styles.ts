@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-types */
+import type { ResponsiveProp, Responsive } from '../types/styles'
 import { theme } from 'themes'
-import type { ResponsiveProp, Responsive } from '../types'
 
 // Themeの型
 export type AppTheme = typeof theme
@@ -13,6 +13,7 @@ type LetterSpacingThemeKeys = keyof typeof theme.letterSpacings
 type LineHeightThemeKeys = keyof typeof theme.lineHeights
 
 // 各Themeのキーの型
+// 型推論の都合で& {}が必要 https://stackoverflow.com/questions/61047551/typescript-union-of-string-and-string-literals
 export type Space = SpaceThemeKeys | (string & {})
 export type Color = ColorThemeKeys | (string & {})
 export type FontSize = FontSizeThemeKeys | (string & {})
