@@ -34,6 +34,11 @@ const BREAKPOINTS: { [key: string]: string } = {
  * @param prop Responsive型
  * @param theme AppTheme
  * @returns CSSプロパティとその値 (ex. background-color: white;)
+ * @example toPropValue('flex-direction', { base: 'column', sm: 'row' })の場合は
+     >> flex-direction: column;
+     >> @media screen and (min-width: 640px) {
+     >>   flex-direction: row;
+     >> }が返ってくる。
  */
 export function toPropValue<T>(
   propKey: string,
