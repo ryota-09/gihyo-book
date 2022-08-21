@@ -65,7 +65,6 @@ const Template: ComponentStory<typeof ImagePreview> = (args) => {
 
     for (const f of files) {
       const index = newImages.findIndex((img: Image) => img.file === f)
-
       if (index === -1) {
         newImages.push({
           file: f,
