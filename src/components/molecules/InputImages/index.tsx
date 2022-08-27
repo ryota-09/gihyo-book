@@ -32,7 +32,7 @@ interface InputImagesProps {
 /**
  * インプットイメージ
  */
- const InputImages = (props: InputImagesProps) => {
+const InputImages = (props: InputImagesProps) => {
   const {
     images,
     maximumNumber,
