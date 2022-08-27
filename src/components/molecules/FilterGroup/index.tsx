@@ -56,6 +56,7 @@ const FilterGroup = ({
             <CheckBox
               name={name}
               label={label}
+              // NOTE:チェックボックス
               checked={!!selected.find((e) => e === name)}
               onChange={handleChange}
             />
